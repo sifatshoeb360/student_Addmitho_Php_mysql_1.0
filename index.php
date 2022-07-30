@@ -5,14 +5,6 @@
     
     include 'conect.php';//conect to data base
 
-    
-
-    
-    $sql = "SELECT * FROM `students_information`";//mysql for read data base
-
-    $result = mysqli_query($con,$sql);//check query
-
-    
 
     if(isset($_POST['filter'])){
 
@@ -29,6 +21,12 @@
 
             $result = mysqli_query($con,$filterSql);//check query
         }
+    }
+    else{
+
+        $sql = "SELECT * FROM `students_information`";//mysql for read data base
+
+        $result = mysqli_query($con,$sql);//check query
     }
 ?>
 
@@ -86,7 +84,7 @@
         <h1 class=" display-6 text-center my-5 text-white">All Student Information</h1>
 
         <div class="row pe-0 me-0 mb-3">
-        <form action="" method="post" class="col-3 d-flex ms-auto me-0 pe-0">
+        <form  method="post" class="col-3 d-flex ms-auto me-0 pe-0">
             <select class="form-select me-3" name="semester" id="" >
                 <option value="all">all </option>
                 <option value="1st semester">1st Semester</option>
@@ -98,7 +96,7 @@
                 <option value="7th semester">7th Semester</option>
                 <option value="8th semester">8th Semester</option>
             </select>
-            <input type="submit" value="filter" name="Filter" class="btn btn-warning  ">
+            <input type="submit" value="Filter" name="filter" class="btn btn-warning  ">
         </form>
         </div>
 
